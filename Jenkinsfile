@@ -30,7 +30,7 @@ pipeline {
         stage("build & SonarQube analysis") {
             agent any
             steps {
-              withSonarQubeEnv('sonarserver') {
+              withSonarQubeEnv('sona/sona') {
                 sh 'mvn clean package sonar:sonar'
               }
             }
