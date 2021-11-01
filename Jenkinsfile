@@ -5,8 +5,8 @@ pipeline {
         jdk 'jdk8'
     }
     environment { 
-        AWS_REGION = 'us-east-1'
-        ECRREGISTRY = '464599248654.dkr.ecr.us-east-1.amazonaws.com'
+        AWS_REGION = 'us-west-1'
+        ECRREGISTRY = '016977085207.dkr.ecr.us-west-1.amazonaws.com/bacarepo12'
         IMAGENAME = 'demomk'
         IMAGE_TAG = 'latest'
     }
