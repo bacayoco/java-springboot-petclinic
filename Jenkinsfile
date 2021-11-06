@@ -6,7 +6,7 @@ pipeline {
     }
     environment { 
         AWS_REGION = 'us-east-1'
-        ECRREGISTRY = '016977085207.dkr.ecr.us-east-1.amazonaws.com/baca-cluster'
+        ECRREGISTRY = '016977085207.dkr.ecr.us-east-1.amazonaws.com'
         IMAGENAME = 'demomk'
         IMAGE_TAG = 'latest'
     }
