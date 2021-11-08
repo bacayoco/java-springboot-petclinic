@@ -7,7 +7,7 @@ pipeline {
     environment { 
         AWS_REGION = 'us-east-1'
         ECRREGISTRY = '016977085207.dkr.ecr.us-east-1.amazonaws.com'
-        IMAGENAME = ''baca-cluster
+        IMAGENAME = 'baca-cluster'
         IMAGE_TAG = 'latest'
     }
     stages {
