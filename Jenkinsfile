@@ -35,11 +35,6 @@ pipeline {
               }
             }
           }
-        stage{"Quality gate"} {
-            steps {
-                waitforQualityGate abortpipeline: true
-            }
-        }
 
          stage('Deployment Approval') {
             steps {
