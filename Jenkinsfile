@@ -35,7 +35,6 @@ pipeline {
               }
             }
           }
-        #condition for the build to from proceeding if the qualities gets fails
         stage{"Quality gate"} {
             steps {
                 waitforQualityGate abortpipeline: true
