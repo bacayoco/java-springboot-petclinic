@@ -26,7 +26,9 @@ pipeline {
             steps {
                 sh 'mvn surefire:test'
             }
-        }        
+        }    
+             #webhook is configure in our sonaqube server to notify jenkins when an anylysis is done.
+
         stage("build & SonarQube analysis") {
             agent any
             steps {
@@ -35,6 +37,12 @@ pipeline {
               }
             }
           }
+        #condition for the build to from proceeding if the qualities gets fails
+        stage{"Quality gate"} {
+            steps {
+                waitforQualityGate abortpipeline: true
+            }
+        }
 
          stage('Deployment Approval') {
             steps {
