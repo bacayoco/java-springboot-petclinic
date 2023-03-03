@@ -28,6 +28,8 @@ pipeline {
             }
         }    
 //####webhook is configure in our sonaqube server to notify jenkins when an anylysis is done.##### //
+            
+        // SonarQube for code quality and static analysis, Code Smells and Security Vulnerabilities.
 
         stage("build & SonarQube analysis") {
             agent any
