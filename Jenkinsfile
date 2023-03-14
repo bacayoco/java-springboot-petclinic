@@ -6,8 +6,8 @@ pipeline {
     }
     environment { 
         AWS_REGION = 'us-east-1'
-        ECRREGISTRY = '016977085207.dkr.ecr.us-east-1.amazonaws.com'
-        IMAGENAME = 'baca-cluster'
+        ECRREGISTRY = '202082903014.dkr.ecr.us-east-1.amazonaws.com'
+        IMAGENAME = 'docker-demo'
         IMAGE_TAG = 'latest'
     }
     stages {
@@ -46,20 +46,20 @@ pipeline {
 //             }
 //         }
 
-     stage('docker login') {
-            steps {
-                sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 202082903014.dkr.ecr.us-east-1.amazonaws.com'
-            }
-        } 
+//      stage('docker login') {
+//             steps {
+//                 sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 202082903014.dkr.ecr.us-east-1.amazonaws.com'
+//             }
+//         } 
         
         
-                 stage('docker push') {
-            steps {
-                sh 'docker push 202082903014.dkr.ecr.us-east-1.amazonaws.com/docker-demo:latest'
-            }
-        } 
+//                  stage('docker push') {
+//             steps {
+//                 sh 'docker push 202082903014.dkr.ecr.us-east-1.amazonaws.com/docker-demo:latest'
+//             }
+//         } 
         
-    }   
+//     }   
         
         
 //          stage('Deployment Approval') {
@@ -72,24 +72,24 @@ pipeline {
 //             }
 //          }   
         
-//          stage('AWS ecr login') {
-//             steps {
-//                 sh 'aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECRREGISTRY}'
-//             }
-//         }        
-//          stage('docker build and tag') {
-//             steps {
-//                 sh 'docker build -t ${IMAGENAME}:${IMAGE_TAG} .'
-//                 sh 'docker tag ${IMAGENAME}:${IMAGE_TAG} ${ECRREGISTRY}/${IMAGENAME}:${IMAGE_TAG}'
-//             }
-//         }  
-//          stage('docker push') {
-//             steps {
-//                 sh 'docker push ${ECRREGISTRY}/${IMAGENAME}:${IMAGE_TAG}'
-//             }
-//         }                
+         stage('AWS ecr login') {
+            steps {
+                sh 'aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECRREGISTRY}'
+            }
+        }        
+         stage('docker build and tag') {
+            steps {
+                sh 'docker build -t ${IMAGENAME}:${IMAGE_TAG} .'
+                sh 'docker tag ${IMAGENAME}:${IMAGE_TAG} ${ECRREGISTRY}/${IMAGENAME}:${IMAGE_TAG}'
+            }
+        }  
+         stage('docker push') {
+            steps {
+                sh 'docker push ${ECRREGISTRY}/${IMAGENAME}:${IMAGE_TAG}'
+            }
+        }                
         
-//     }
+    }
     post {
         always {
             junit 'target/surefire-reports/TEST-*.xml'
