@@ -4,12 +4,12 @@ pipeline {
         maven 'maven3.8'
         jdk 'jdk8'
     }
-//     environment { 
-//         AWS_REGION = 'us-east-1'
-//         ECRREGISTRY = '016977085207.dkr.ecr.us-east-1.amazonaws.com'
-//         IMAGENAME = 'baca-cluster'
-//         IMAGE_TAG = 'latest'
-//     }
+    environment { 
+        AWS_REGION = 'us-east-1'
+        ECRREGISTRY = '016977085207.dkr.ecr.us-east-1.amazonaws.com'
+        IMAGENAME = 'baca-cluster'
+        IMAGE_TAG = 'latest'
+    }
     stages {
        stage ('Clone') {
           steps {
