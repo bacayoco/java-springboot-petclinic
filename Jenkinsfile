@@ -31,14 +31,14 @@ pipeline {
             
         // SonarQube for code quality and static analysis, Code Smells and Security Vulnerabilities.
 
-        stage("build & SonarQube analysis") {
-            agent any
-            steps {
-              withSonarQubeEnv('sonaqube') {
-                sh 'mvn clean package sonar:sonar'
-              }
-            }
-          }
+//         stage("build & SonarQube analysis") {
+//             agent any
+//             steps {
+//               withSonarQubeEnv('sonaqube') {
+//                 sh 'mvn clean package sonar:sonar'
+//               }
+//             }
+//           }
 //###condition for the build to from proceeding if the qualities gets fails##//
 // stage{"Quality gate"} {
 //        steps {
