@@ -62,15 +62,15 @@ pipeline {
 //     }   
         
         
-//          stage('Deployment Approval') {
-//             steps {
-//               script {
-//                 timeout(time: 10, unit: 'MINUTES') {
-//                  input(id: 'Deploy Gate', message: 'Deploy Application to Dev ?', ok: 'Deploy')
-//                  }
-//                }
-//             }
-//          }   
+         stage('Deployment Approval') {
+            steps {
+              script {
+                timeout(time: 10, unit: 'MINUTES') {
+                 input(id: 'Deploy Gate', message: 'Deploy Application to Dev ?', ok: 'Deploy')
+                 }
+               }
+            }
+         }   
         
          stage('AWS ecr login') {
             steps {
