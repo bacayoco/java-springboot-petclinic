@@ -45,28 +45,14 @@ pipeline {
 //             waitforQualityGate abortpipeline: true
 //             }
 //         }
-
-//      stage('docker login') {
-//             steps {
-//                 sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 202082903014.dkr.ecr.us-east-1.amazonaws.com'
-//             }
-//         } 
-        
-        
-//                  stage('docker push') {
-//             steps {
-//                 sh 'docker push 202082903014.dkr.ecr.us-east-1.amazonaws.com/docker-demo:latest'
-//             }
-//         } 
-        
-//     }   
+   
         
         
           stage('Deployment Approval') {
             steps {
                script {
                 timeout(time: 10, unit: 'MINUTES') {
-                 input( message : "Deploy Application to Dev" ? ok: "Deploy")
+                 input( message : "Deploy Application to Dev")
                   }
                }
             }
