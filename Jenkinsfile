@@ -1,6 +1,6 @@
 pipeline {
     agent { 
-        label 'ubuntu'
+        label 'network*'
            }
     tools {
         maven 'maven3.8'
