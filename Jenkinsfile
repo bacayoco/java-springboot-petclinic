@@ -1,6 +1,6 @@
 pipeline {
     agent {
-      lable "network"
+      lable 'network'
     }
     tools {
         maven 'maven3.8'
