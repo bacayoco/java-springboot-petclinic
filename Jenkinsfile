@@ -1,5 +1,5 @@
 pipeline {
-    agent 'network'
+    agent {label 'network'}
     
     tools {
         maven 'maven3.8'
