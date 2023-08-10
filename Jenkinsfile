@@ -75,7 +75,7 @@ pipeline {
         }  
          stage('docker push') {
             steps {
-                sh 'docker push ${ECRREGISTRY}/${IMAGENAME}:${env.BUILD_NUMBER}'
+                sh 'docker push ${ECRREGISTRY}/${IMAGENAME}:$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:}'
             }
         }                
         
