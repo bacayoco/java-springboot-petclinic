@@ -9,7 +9,7 @@ pipeline {
         AWS_REGION = 'us-east-1'
         ECRREGISTRY = '202082903014.dkr.ecr.us-east-1.amazonaws.com'
         IMAGENAME = 'docker-demo'
-        IMAGE_TAG = 'latest'
+     //   IMAGE_TAG = 'latest'
     }
     stages {
        stage ('Clone') {
@@ -69,17 +69,19 @@ pipeline {
         }        
          stage('docker build and tag') {
             steps {
-                sh 'docker build -t ${IMAGENAME}:${IMAGE_TAG} .'
-                sh 'docker tag ${IMAGENAME}:${IMAGE_TAG} ${ECRREGISTRY}/${IMAGENAME}:${IMAGE_TAG}'
+                sh 'docker build -t ${IMAGENAME}:${env.BUILD_NUMBER} .'
+                sh 'docker tag ${IMAGENAME}:${IMAGE_TAG} ${ECRREGISTRY}/${IMAGENAME}:${env.BUILD_NUMBER}'
             }
         }  
          stage('docker push') {
             steps {
-                sh 'docker push ${ECRREGISTRY}/${IMAGENAME}:${IMAGE_TAG}'
+                sh 'docker push ${ECRREGISTRY}/${IMAGENAME}:${env.BUILD_NUMBER}'
             }
         }                
         
     }
+// sh 'docker push ${ECRREGISTRY}/${IMAGENAME}:${IMAGE_TAG}'
+    
     post {
         always {
             junit 'target/surefire-reports/TEST-*.xml'
