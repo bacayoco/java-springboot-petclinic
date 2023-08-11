@@ -69,13 +69,13 @@ pipeline {
         }        
          stage('docker build and tag') {
             steps {
-                sh 'docker build -t ${IMAGENAME}:${env.BUILD_ID} .'
-                sh 'docker tag ${IMAGENAME}:${env.BUILD_ID} ${ECRREGISTRY}/${IMAGENAME}:${env.BUILD_ID}'
+                sh 'docker build -t ${IMAGENAME}:${BUILD_NUMBER} .'
+                sh 'docker tag ${IMAGENAME}:${BUILD_NUMBER} ${ECRREGISTRY}/${IMAGENAME}:${BUILD_NUMBER}'
             }
         }  
          stage('docker push') {
             steps {
-                sh 'docker push ${ECRREGISTRY}/${IMAGENAME}:${env.BUILD_ID}'
+                sh 'docker push ${ECRREGISTRY}/${IMAGENAME}:${BUILD_NUMBER}'
             }
         }                
         
