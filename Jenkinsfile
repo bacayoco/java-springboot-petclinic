@@ -81,9 +81,19 @@ pipeline {
         
     }
 
-        stage('Trigger ManifestUpdate') {
-                echo "triggering updatemanifestjob"
-               // build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+      //  stage('Trigger ManifestUpdate') {
+      //        echo "triggering updatemanifestjob"
+      //        build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+      //  }
+
+            stage('Trigger ManifestUpdate') {
+               steps { build job: ']
+                     } 
+                stage{
+                    steps{
+                        echo 'update manifested file with build number'
+                    }
+                }
         }
 // sh 'docker push ${ECRREGISTRY}/${IMAGENAME}:${IMAGE_TAG}'
     
