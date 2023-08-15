@@ -88,7 +88,7 @@ pipeline {
 
             stage('Trigger ManifestUpdate') {
                steps {
-                   build 'job'
+                   build 'updatemanifest'
                }
                      } 
                 stage('echo after job')
