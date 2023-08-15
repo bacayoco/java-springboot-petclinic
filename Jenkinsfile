@@ -88,7 +88,7 @@ pipeline {
 
             stage('Trigger ManifestUpdate') {
                steps {
-                  build job: 'updatemanifests', parameters: [string(name: 'DOCKERTAG', value: 'env.BUILD_NUMBER')]
+                  build job: 'updatemanifests', parameters: [string(name: 'DOCKERTAG', value: 'BUILD_NUMBER')]
                }
                      } 
         stage('echo after job'){
