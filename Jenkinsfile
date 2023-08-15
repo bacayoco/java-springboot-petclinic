@@ -96,7 +96,7 @@ pipeline {
                         echo 'update manifested file with build number'
                     }
                 }
-        }
+        
 // sh 'docker push ${ECRREGISTRY}/${IMAGENAME}:${IMAGE_TAG}'
     
     post {
