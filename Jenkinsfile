@@ -88,7 +88,7 @@ pipeline {
 
             stage('Trigger ManifestUpdate') {
                steps {
-                  build job: 'docker-demo', parameters: [string(name: 'actions', value: 'apply')]
+                  build job: 'updatemanifests', parameters: [string(name: 'DOCKERTAG', value: 'latest')]
                }
                      } 
         stage('echo after job'){
