@@ -91,7 +91,8 @@ pipeline {
                    build 'job'
                }
                      } 
-                stage{
+                stage('echo after job')
+    {
                     steps{
                         echo 'update manifested file with build number'
                     }
